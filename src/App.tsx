@@ -1,10 +1,24 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CartPage from "./pages/CartPage";
+import EditPage from "./pages/EditPage";
+import AppLayout from "./components/AppLayout";
+
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />, children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/cart", element: <CartPage /> },
+      { path: "/cart/edit/:productId", element: <EditPage /> },
+      { path: "*", element: <h1>404 Not Found</h1> }
+    ]
+  },
+]);
+
 function App() {
 
   return (
-    <div>
-      <h1>Triskin Store Admin</h1>
-      <p>Welcome to the Triskin Store Admin Dashboard!</p>
-    </div>
+    <RouterProvider router={router} />
   )
 }
 
