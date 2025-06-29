@@ -24,7 +24,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1 className="text-yellow-500 font-semibold text-center text-xl">
+      <h1 className="text-center text-xl text-yellow-500 font-semibold">
         Home Page
       </h1>
       <p >Lista de Produtos:</p>
