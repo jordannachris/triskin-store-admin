@@ -12,35 +12,15 @@ interface ProductItemProps {
     product: ProductInterface;
 }
 
-const imageStyle: React.CSSProperties = {
-    width: 64,
-    height: 64,
-    objectFit: "contain" as React.CSSProperties["objectFit"],
-    marginRight: 16
-};
-
-const containerStyle = {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: "16px",
-    border: "1px solid #ddd", // borda leve cinza
-    borderRadius: "8px",      // cantos arredondados (opcional)
-    padding: "12px",
-     backgroundColor: "#faf6ee"
-};
-
-
 const ProductItem = ({ product }: ProductItemProps) => {
-    // console.log("ProductItem:", product);
-
     const { name, price, status } = product;
     const statusText = status ? "Ativo" : "Inativo";
     const productImage = status ? productActiveImage : productInactiveImage;
 
     return (
-        <li style={containerStyle}>
+        <li className="flex items-center mb-4 border border-fuchsia-800 rounded-lg p-4 bg-pink-50">
             <div>
-                <img src={productImage} alt={name} style={imageStyle} />
+                <img src={productImage} alt={name} className="w-16 h-16 object-contain mx-4" />
             </div>
 
             <div>

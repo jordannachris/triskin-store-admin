@@ -1,8 +1,9 @@
 const EditPage = () => {
     return (
         <div>
-            <h1>Edit Page</h1>
-            <p>This is the edit page content.</p>
+            <h1 className="text-center text-xl font-semibold text-fuchsia-800 my-8">
+                Edição de Produto
+            </h1>
         </div>
     );
 }

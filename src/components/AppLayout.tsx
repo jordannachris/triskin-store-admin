@@ -8,18 +8,12 @@ const AppLayout = () => {
     const isLoading = navigation.state === "loading";
 
     return (
-        <div>
-            <p>Início do Layout</p>
-            {/* {isLoading && <Loader />} */}
-
+        <div className="flex flex-col min-h-screen">
             <Header />
 
             <main>
-                {/* <Outlet /> */}
                 {isLoading ? <Loader /> : <Outlet />}
             </main>
-
-            <p>Fim do Layout</p>
         </div>
     );
 }

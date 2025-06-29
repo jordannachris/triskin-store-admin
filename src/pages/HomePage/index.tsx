@@ -1,4 +1,3 @@
-// import { useLoaderData } from "react-router-dom";
 import ProductList from "../../components/ProductList";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../services/productService";
@@ -12,7 +11,6 @@ interface ProductInterface {
 }
 
 const HomePage = () => {
-  // const productsData = useLoaderData() as ProductInterface[];
   const [productsData, setProductsData] = useState<ProductInterface[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,10 +22,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1 className="text-center text-xl text-yellow-500 font-semibold">
-        Home Page
+      <h1 className="text-center text-xl font-semibold text-fuchsia-800 my-8">
+        Listagem de Produtos
       </h1>
-      <p >Lista de Produtos:</p>
 
       {loading ? <Loader /> : <ProductList products={productsData} />}
     </div>

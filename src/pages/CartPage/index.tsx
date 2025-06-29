@@ -1,8 +1,9 @@
 const CartPage = () => {
     return (
         <div>
-            <h1>Cart Page</h1>
-            <p>This is the cart page content.</p>
+            <h1 className="text-center text-xl font-semibold text-fuchsia-800 my-8">
+                Carrinho de Compras
+            </h1>
         </div>
     );
 };

@@ -8,7 +8,7 @@ interface ProductInterface {
     status: boolean;
 }
 
-interface ProductsListInterface  {
+interface ProductsListInterface {
     products: ProductInterface[];
 }
 
@@ -16,7 +16,9 @@ interface ProductsListInterface  {
 const ProductList = ({ products }: ProductsListInterface) => {
 
     return (
-        <ul>{products.map((item) => <ProductItem product={item} key={item.id} />)}</ul>
+        <div className="container mx-auto px-4">
+            <ul>{products.map((item) => <ProductItem product={item} key={item.id} />)}</ul>
+        </div>
     );
 }
 

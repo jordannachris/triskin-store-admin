@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <>
-            <p>HEADER AQUI</p>
+        <div className="bg-fuchsia-800 text-white p-4">
             <header>
-                <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Ir para Home Page</Link>
+                <Link to="/">Triskin Store Admin</Link>
             </header>
-        </>
+        </div>
     );
 }
 
