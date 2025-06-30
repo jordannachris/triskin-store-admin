@@ -42,7 +42,6 @@ Este projeto é um painel administrativo para gerenciamento de produtos e carrin
 - **ESLint** e **Prettier** (padronização de código)
 - **Context API** (estado global)
 - **Fetch API** (requisições HTTP)
-- **React Icons** (ícones, se usado)
 - **Outras**: consulte o `package.json` para dependências completas.
 
 ---
