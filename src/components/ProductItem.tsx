@@ -21,21 +21,21 @@ const ProductItem = ({ product }: ProductItemProps) => {
     const formattedPrice = formatPrice(price);
 
     return (
-        <li className={`flex items-center mb-4 border border-fuchsia-800 rounded-lg p-4 bg-pink-50 border-l-8 ${borderColor}`}>
-            <div className="w-16 h-16 mx-4">
+        <li className={`flex flex-col sm:flex-row  items-center mb-4 border border-fuchsia-800 rounded-lg p-4 bg-pink-50 border-l-8 ${borderColor}`}>
+            <div className="w-16 h-16 mx-4 flex-shrink-0 mb-4 sm:mb-0">
                 <img src={productImage} alt={name} className="object-contain w-full h-full" />
             </div>
 
-            <div className="ml-2">
-                <p>
+            <div className="ml-2 w-full">
+                <p className="break-words max-w-full">
                     <span className="font-semibold text-fuchsia-800">Nome do produto:</span>
                     <span className="text-violet-900 ml-1">{name}</span>
                 </p>
-                <p>
+                <p className="break-words max-w-full">
                     <span className="font-semibold text-fuchsia-800">Preço:</span>
                     <span className="text-violet-900 ml-1">R$ {formattedPrice}</span>
                 </p>
-                <p>
+                <p className="break-words max-w-full">
                     <span className="font-semibold text-fuchsia-800">Status:</span>
                     <span className="text-violet-900 ml-1">{statusText}</span>
                 </p>
