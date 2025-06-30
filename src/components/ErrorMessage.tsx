@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 
 const ErrorMessage = () => {
     const navigate = useNavigate();
+    const error = useRouteError();
+    console.error("Error:", error);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-pink-50">
