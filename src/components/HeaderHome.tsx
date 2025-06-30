@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
+import CartIcon from "./CartIcon";
 
 interface HeaderProps {
     search: string;
@@ -21,7 +22,7 @@ const HeaderHome = ({ search, setSearch }: HeaderProps) => {
                 </div>
             </div>
 
-
+            <CartIcon />
         </header>
     );
 }
