@@ -1,17 +1,17 @@
-import { useState } from "react";
 import productActiveImage from "../assets/images/product_active.png"
 import productInactiveImage from "../assets/images/product_inactive.png";
 import formatPrice from "../utils/formatPrice";
 import AddProductButton from "./AddProductButton";
 import { ProductInterface } from "../interfaces/ProductInterface";
+import { useCart } from "../contexts/CartContext";
 
 export interface ProductItemProps {
     product: ProductInterface;
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
-    const [quantity, setQuantity] = useState(0);
-    const { name, price, status } = product;
+    const { addToCart } = useCart();
+    const { id, name, price, status } = product;
     const statusText = status ? "Ativo" : "Inativo";
     const productImage = status ? productActiveImage : productInactiveImage;
     const borderColor = status ? "border-l-green-500" : "border-l-red-500";
@@ -42,8 +42,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
 
             <AddProductButton
                 status={status}
-                value={quantity}
-                onChange={setQuantity}
+                onClick={() => addToCart(id)}
             />
         </li>
     );
