@@ -1,5 +1,7 @@
 # Triskin Store Admin
 
+[🔗 Acesse o projeto online](https://triskin-store-admin.vercel.app)
+
 Este projeto é um painel administrativo para gerenciamento de produtos e carrinho de compras, desenvolvido em React com TypeScript.
 
 ![Demonstração do projeto](./project-demo.gif)
