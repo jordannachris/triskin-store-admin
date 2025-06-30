@@ -5,6 +5,7 @@ type Cart = Record<string, number>;
 interface CartContextProps {
     cart: Cart;
     addToCart: (id: string) => void;
+    setProductQuantity: (id: string, quantity: number) => void;
     totalCount: number;
 }
 
@@ -20,10 +21,23 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }));
     };
 
+    const setProductQuantity = (id: string, quantity: number) => {
+        setCart(prev => {
+            // Remove o produto se a quantidade for 0 ou menor
+            if (!quantity || quantity <= 0) {
+                const newCart = { ...prev };
+                delete newCart[id];
+                return newCart;
+            }
+            // Atualiza a quantidade normalmente
+            return { ...prev, [id]: quantity };
+        });
+    };
+
     const totalCount = Object.values(cart).reduce((sum, n) => sum + n, 0);
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, totalCount }}>
+        <CartContext.Provider value={{ cart, addToCart, setProductQuantity, totalCount }}>
             {children}
         </CartContext.Provider>
     );
