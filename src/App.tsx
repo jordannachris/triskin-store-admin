@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     errorElement: <ErrorMessage />,
     children: [
-      { path: "/", element: <HomePage />, errorElement: <ErrorMessage />, },
-      { path: "/cart", element: <CartPage /> },
+      { path: "/", element: <HomePage />, },
+      { path: "/cart", element: <CartPage />, },
       { path: "/cart/edit/:productId", element: <EditPage /> },
     ]
   },
