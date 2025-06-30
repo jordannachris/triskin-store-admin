@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProducts } from "../../services/productService";
+import { getProductById, updateProduct } from "../../services/productService";
 import PageTitle from "../../components/ui/PageTitle";
 import { ProductInterface } from "../../interfaces/ProductInterface";
 import Loader from "../../components/Loader";
@@ -14,20 +14,21 @@ const EditPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        getProducts().then((products: ProductInterface[]) => {
-            const found = products.find(p => p.id === productId);
-            if (found) {
-                setProduct(found);
-                setForm({
-                    name: found.name,
-                    price: found.price.toString(),
-                    status: found.status,
-                });
-            }
-        }).finally(() => setLoading(false));
+        if (productId) {
+            getProductById(productId).then(found => {
+                if (found) {
+                    setProduct(found);
+                    setForm({
+                        name: found.name,
+                        price: found.price.toString(),
+                        status: found.status,
+                    });
+                }
+            }).finally(() => setLoading(false));
+        }
     }, [productId]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = e.target;
         setForm(prev => ({
             ...prev,
@@ -39,16 +40,12 @@ const EditPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Exemplo de PUT (ajuste a URL conforme sua API)
-        await fetch(`/api/products/${productId}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                ...product,
-                name: form.name,
-                price: parseFloat(form.price),
-                status: form.status,
-            }),
+        if (!productId) return;
+        await updateProduct(productId, {
+            ...product,
+            name: form.name,
+            price: parseFloat(form.price),
+            status: form.status,
         });
         navigate("/cart");
     };

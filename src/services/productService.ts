@@ -1,6 +1,7 @@
+import { ProductInterface } from "../interfaces/ProductInterface";
 import { fetchProductById, fetchProducts } from "./api/productApi";
 
-export async function getProducts() {
+export async function getProducts(): Promise<ProductInterface[]> {
   try {
     const response = await fetchProducts();
 
@@ -20,7 +21,7 @@ export async function getProducts() {
   }
 }
 
-export async function getProductById(id: string) {
+export async function getProductById(id: string): Promise<ProductInterface | undefined> {
   try {
     const response = await fetchProductById(id);
 
@@ -34,4 +35,12 @@ export async function getProductById(id: string) {
     console.error(`Erro ao buscar o produto com o id ${id}:`, error);
     throw error;
   }
+}
+
+export async function updateProduct(id: string, data: Partial<ProductInterface>) {
+    return fetch(`/api/products/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
 }
