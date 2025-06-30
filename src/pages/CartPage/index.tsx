@@ -5,7 +5,7 @@ import { getProducts } from "../../services/productService";
 import formatPrice from "../../utils/formatPrice";
 import ProductList from "../../components/ProductList";
 import { ProductInterface } from "../../interfaces/ProductInterface";
-import Loader from "../../components/Loader";
+import Loader from "../../components/ui/Loader";
 
 const CartPage = () => {
     const { cart } = useCart();

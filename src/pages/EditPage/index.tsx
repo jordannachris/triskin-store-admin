@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getProductById, updateProduct } from "../../services/productService";
 import PageTitle from "../../components/ui/PageTitle";
 import { ProductInterface } from "../../interfaces/ProductInterface";
-import Loader from "../../components/Loader";
+import Loader from "../../components/ui/Loader";
 
 const EditPage = () => {
     const { productId } = useParams();
