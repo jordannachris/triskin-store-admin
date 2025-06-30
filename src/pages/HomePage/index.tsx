@@ -5,12 +5,15 @@ import Loader from "../../components/Loader";
 import PageTitle from "../../components/ui/PageTitle";
 import { ProductInterface } from "../../interfaces/ProductInterface";
 import { useOutletContext } from "react-router-dom";
+import { useDebounce } from "../../hooks/useDebounce";
 
 
 const HomePage = () => {
   const { search } = useOutletContext<{ search: string }>();
   const [productsData, setProductsData] = useState<ProductInterface[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const debouncedSearch = useDebounce(search, 500);
 
   useEffect(() => {
     getProducts()
@@ -19,7 +22,7 @@ const HomePage = () => {
   }, []);
 
   const filteredProducts = productsData.filter(product =>
-    product.name.toLowerCase().includes(search.toLowerCase())
+    product.name.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
 
   return (
