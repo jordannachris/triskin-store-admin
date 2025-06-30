@@ -8,7 +8,7 @@ Este projeto é um painel administrativo para gerenciamento de produtos e carrin
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/jordannachris/triskin-store-admin.git
-   cd seu-repo
+   cd triskin-store-admin
    ```
 
 2. **Instale as dependências:**
