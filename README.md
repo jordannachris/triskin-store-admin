@@ -1,6 +1,4 @@
 # Triskin Store Admin
-Triskin | Desafio Técnico – Eng. Front-End (Pleno) 
-
 Este projeto é um painel administrativo para gerenciamento de produtos e carrinho de compras, desenvolvido em React com TypeScript.
 
 ---
