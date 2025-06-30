@@ -1,3 +1,4 @@
+import { useState } from "react";
 import productActiveImage from "../assets/images/product_active.png"
 import productInactiveImage from "../assets/images/product_inactive.png";
 import formatPrice from "../utils/formatPrice";
@@ -9,6 +10,7 @@ export interface ProductItemProps {
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
+    const [quantity, setQuantity] = useState(0);
     const { name, price, status } = product;
     const statusText = status ? "Ativo" : "Inativo";
     const productImage = status ? productActiveImage : productInactiveImage;
@@ -38,7 +40,11 @@ const ProductItem = ({ product }: ProductItemProps) => {
                 </p>
             </div>
 
-            <AddProductButton status={status} />
+            <AddProductButton
+                status={status}
+                value={quantity}
+                onChange={setQuantity}
+            />
         </li>
     );
 }
