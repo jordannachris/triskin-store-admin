@@ -29,7 +29,15 @@ const HomePage = () => {
     <div className="pt-32 max-w-2xl mx-auto">
       <PageTitle titleText="Listagem de Produtos" />
 
-      {loading ? <Loader /> : <ProductList products={filteredProducts} />}
+      {loading ? (
+        <Loader />
+      ) : filteredProducts.length === 0 ? (
+        <div className="text-center text-fuchsia-800 font-semibold mt-8">
+          Nenhum produto encontrado para essa busca.
+        </div>
+      ) : (
+        <ProductList products={filteredProducts} />
+      )}
     </div>
   );
 };
