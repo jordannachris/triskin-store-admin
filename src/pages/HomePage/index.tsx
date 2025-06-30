@@ -26,7 +26,7 @@ const HomePage = () => {
   );
 
   return (
-    <div>
+    <div className="pt-32 max-w-2xl mx-auto">
       <PageTitle titleText="Listagem de Produtos" />
 
       {loading ? <Loader /> : <ProductList products={filteredProducts} />}

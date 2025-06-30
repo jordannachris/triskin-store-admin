@@ -28,7 +28,7 @@ const CartPage = () => {
     );
 
     return (
-        <div className="max-w-2xl mx-auto">
+        <div className="pt-32 max-w-2xl mx-auto">
             <PageTitle titleText="Carrinho de Compras" />
 
             {loading ? (
