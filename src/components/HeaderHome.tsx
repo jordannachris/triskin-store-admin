@@ -17,7 +17,7 @@ const HeaderHome = ({ search, setSearch }: HeaderProps) => {
                     <SearchInput
                         value={search}
                         onChange={e => setSearch(e.target.value)}
-                        placeholder="Buscar produtos..."
+                        placeholder="Pesquisar pelo nome do produto..."
                     />
                 </div>
             </div>

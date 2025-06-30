@@ -1,20 +1,21 @@
-import { Outlet, useNavigation } from "react-router-dom";
+import { useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
-import Loader from "./Loader";
 import HeaderHome from "./HeaderHome";
 
 
 const AppLayout = () => {
-    const navigation = useNavigation();
-    const isLoading = navigation.state === "loading";
+    const [search, setSearch] = useState("");
+    const location = useLocation();
     const isHomePage = location.pathname === "/";
 
     return (
         <div className="flex flex-col min-h-screen">
-            {isHomePage ? <HeaderHome /> : <Header />}
-
+            {isHomePage
+                ? <HeaderHome search={search} setSearch={setSearch} />
+                : <Header />}
             <main>
-                {isLoading ? <Loader /> : <Outlet />}
+                <Outlet context={{ search, setSearch }} />
             </main>
         </div>
     );
