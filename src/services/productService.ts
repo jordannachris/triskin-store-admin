@@ -10,7 +10,7 @@ export async function getProducts() {
 
     const data = await response.json();
 
-     // Simula um delay de 1.5 segundos (1500 ms) para testar o Loader
+    // Simula um delay de 1.5 segundos (1500 ms) para testar o Loader
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     return data;
