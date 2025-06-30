@@ -1,8 +1,8 @@
 # Triskin Store Admin
 
-![Demonstração do projeto](./project-demo.gif)
-
 Este projeto é um painel administrativo para gerenciamento de produtos e carrinho de compras, desenvolvido em React com TypeScript.
+
+![Demonstração do projeto](./project-demo.gif)
 
 ---
 
