@@ -28,10 +28,12 @@ const EditPage = () => {
     }, [productId]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value, type } = e.target;
         setForm(prev => ({
             ...prev,
-            [name]: type === "checkbox" ? checked : value
+            [name]: type === "checkbox"
+                ? (e.target as HTMLInputElement).checked
+                : value
         }));
     };
 
