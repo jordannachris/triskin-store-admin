@@ -1,19 +1,19 @@
 
 import ProductItem from "./ProductItem";
 
-interface ProductInterface {
+export interface ProductInterface {
     id: string;
     name: string;
     price: number;
     status: boolean;
 }
 
-interface ProductsListInterface {
+export interface ProductListProps {
     products: ProductInterface[];
 }
 
 
-const ProductList = ({ products }: ProductsListInterface) => {
+const ProductList = ({ products }: ProductListProps) => {
 
     return (
         <div className="container mx-auto px-4">
