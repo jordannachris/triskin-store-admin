@@ -1,7 +1,7 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 import Loader from "./Loader";
-import HeaderHomePage from "./HeaderHomePage";
+import HeaderHome from "./HeaderHome";
 
 
 const AppLayout = () => {
@@ -11,7 +11,7 @@ const AppLayout = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            {isHomePage ? <HeaderHomePage /> : <Header />}
+            {isHomePage ? <HeaderHome /> : <Header />}
 
             <main>
                 {isLoading ? <Loader /> : <Outlet />}
