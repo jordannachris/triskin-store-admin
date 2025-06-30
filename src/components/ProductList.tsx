@@ -1,12 +1,6 @@
 
+import { ProductInterface } from "../interfaces/ProductInterface";
 import ProductItem from "./ProductItem";
-
-export interface ProductInterface {
-    id: string;
-    name: string;
-    price: number;
-    status: boolean;
-}
 
 export interface ProductListProps {
     products: ProductInterface[];

@@ -3,13 +3,8 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../../services/productService";
 import Loader from "../../components/Loader";
 import PageTitle from "../../components/ui/PageTitle";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 
-interface ProductInterface {
-  id: string;
-  name: string;
-  price: number;
-  status: boolean;
-}
 
 const HomePage = () => {
   const [productsData, setProductsData] = useState<ProductInterface[]>([]);

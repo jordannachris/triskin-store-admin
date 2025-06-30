@@ -2,8 +2,8 @@ import { useState } from "react";
 import productActiveImage from "../assets/images/product_active.png"
 import productInactiveImage from "../assets/images/product_inactive.png";
 import formatPrice from "../utils/formatPrice";
-import { ProductInterface } from "./ProductList";
 import AddProductButton from "./AddProductButton";
+import { ProductInterface } from "../interfaces/ProductInterface";
 
 export interface ProductItemProps {
     product: ProductInterface;
