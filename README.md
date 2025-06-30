@@ -56,7 +56,6 @@ Este projeto é um painel administrativo para gerenciamento de produtos e carrin
 ### Otimização de Renderização
 
 - O contexto do carrinho é atualizado de forma imutável, garantindo que apenas componentes realmente dependentes do carrinho sejam re-renderizados.
-- O uso de hooks como `useMemo` e `useCallback` pode ser aplicado em componentes de lista para evitar renderizações desnecessárias (verifique nos componentes de lista e item).
 - O carregamento de produtos é feito de forma assíncrona, exibindo um componente `Loader` enquanto os dados são buscados, melhorando a experiência do usuário.
 
 ### Organização e Reaproveitamento
@@ -98,9 +97,5 @@ src/
 
 ---
 
-## ✨ Observações
-
-- O projeto está pronto para ser expandido com autenticação, mais páginas ou integrações com APIs reais.
-- Sinta-se à vontade para abrir issues ou PRs!
 
 ---
