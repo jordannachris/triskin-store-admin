@@ -2,6 +2,7 @@ import ProductList from "../../components/ProductList";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../services/productService";
 import Loader from "../../components/Loader";
+import PageTitle from "../../components/ui/PageTitle";
 
 interface ProductInterface {
   id: string;
@@ -22,9 +23,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1 className="text-center text-xl font-semibold text-fuchsia-800 my-8">
-        Listagem de Produtos
-      </h1>
+      <PageTitle titleText="Listagem de Produtos" />
 
       {loading ? <Loader /> : <ProductList products={productsData} />}
     </div>
