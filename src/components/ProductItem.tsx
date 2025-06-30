@@ -15,11 +15,12 @@ export interface ProductItemProps {
 }
 
 const ProductItem = ({ product, isCart = false }: ProductItemProps) => {
-    const { addToCart, setProductQuantity } = useCart();
+    const { addToCart, setProductQuantity, cart } = useCart();
     const { id, name, price, status } = product;
     const statusText = status ? "Ativo" : "Inativo";
     const productImage = status ? productActiveImage : productInactiveImage;
     const formattedPrice = formatPrice(price);
+    const prodQuantity = cart[id] || 0;
 
     const borderColor = status ? "border-l-green-500" : "border-l-red-500";
 
@@ -34,7 +35,13 @@ const ProductItem = ({ product, isCart = false }: ProductItemProps) => {
         >
             <ProductImage productImage={productImage} productName={name} />
 
-            <ProductInfo productName={name} productPrice={formattedPrice} productStatus={statusText} />
+            <ProductInfo
+                productName={name}
+                productPrice={formattedPrice}
+                productStatus={statusText}
+                isCart={isCart}
+                productQuantity={isCart ? prodQuantity : undefined}
+            />
 
             {isCart ? (
                 <div className="flex flex-col gap-2 mt-4 sm:mt-0 sm:ml-6">
